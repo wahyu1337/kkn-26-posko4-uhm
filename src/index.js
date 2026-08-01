@@ -148,3 +148,15 @@ if (contactForm) {
 }
 
 console.log('✅ Website KKN 26 Posko 4 — Universitas Handayani Makassar loaded!');
+
+// ============================================
+// PRELOADER — Fade out when page is fully loaded
+// ============================================
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        setTimeout(() => preloader.remove(), 500);
+    }
+});

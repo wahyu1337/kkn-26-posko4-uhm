@@ -14,6 +14,11 @@
 </head>
 
 <body>
+    <!-- ========== PRELOADER ========== -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a1628; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease, visibility 0.5s ease;">
+        <div style="width: 48px; height: 48px; border: 4px solid rgba(255,255,255,0.2); border-top-color: #f0a500; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    </div>
+    <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
 
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar navbar-solid" id="navbar">
