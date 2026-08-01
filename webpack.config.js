@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Daftar semua halaman website
 const pages = [
@@ -50,6 +51,11 @@ module.exports = {
             inject: 'body',
             chunks: ['main'],
         })),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/assets', to: 'assets', noErrorOnMissing: true },
+            ],
+        }),
     ],
 
     devServer: {

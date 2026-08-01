@@ -220,14 +220,28 @@ ul {
     width: auto;
 }
 
+.logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .logo-text {
     font-size: 1.15rem;
     font-weight: 700;
     color: #fff;
+    line-height: 1.2;
 }
 
 .logo-accent {
     color: var(--accent-400);
+}
+
+.logo-subtext {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2px;
 }
 
 .nav-menu {
@@ -1282,6 +1296,10 @@ ul {
 
     .footer-content {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .logo-subtext {
+        display: none;
     }
 }
 
