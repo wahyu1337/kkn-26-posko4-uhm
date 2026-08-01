@@ -1,0 +1,4 @@
+dist
+.env
+plan
+node_modules
