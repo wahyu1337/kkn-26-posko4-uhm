@@ -160,3 +160,94 @@ window.addEventListener('load', () => {
         setTimeout(() => preloader.remove(), 500);
     }
 });
+
+// ============================================
+// DYNAMIC PAGINATION FOR BERITA
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const beritaGrid = document.querySelector('.berita-grid');
+    const paginationContainer = document.getElementById('pagination-container');
+    
+    if (beritaGrid && paginationContainer) {
+        const itemsPerPage = 6;
+        // Hanya ambil elemen dengan class berita-card
+        const articles = Array.from(beritaGrid.querySelectorAll('.berita-card'));
+        
+        if (articles.length > itemsPerPage) {
+            const totalPages = Math.ceil(articles.length / itemsPerPage);
+            let currentPage = 1;
+
+            function renderPage(page) {
+                currentPage = page;
+                
+                // Show/hide articles
+                articles.forEach((article, index) => {
+                    const startIndex = (page - 1) * itemsPerPage;
+                    const endIndex = startIndex + itemsPerPage;
+                    
+                    if (index >= startIndex && index < endIndex) {
+                        article.style.display = ''; // Kembalikan ke default display (flex/block dari CSS)
+                    } else {
+                        article.style.display = 'none'; // Sembunyikan
+                    }
+                });
+
+                // Update pagination UI
+                paginationContainer.innerHTML = '';
+                
+                // Prev button (Tampil jika bukan di halaman pertama)
+                if (currentPage > 1) {
+                    const prevBtn = document.createElement('a');
+                    prevBtn.href = '#';
+                    prevBtn.className = 'page-numbers next';
+                    prevBtn.innerHTML = '&laquo;';
+                    prevBtn.title = 'Sebelumnya';
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        renderPage(currentPage - 1);
+                        window.scrollTo({ top: beritaGrid.offsetTop - 100, behavior: 'smooth' });
+                    });
+                    paginationContainer.appendChild(prevBtn);
+                }
+
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageBtn = document.createElement('span');
+                    pageBtn.className = 'page-numbers';
+                    if (i === currentPage) {
+                        pageBtn.classList.add('current');
+                    } else {
+                        pageBtn.style.cursor = 'pointer';
+                        pageBtn.addEventListener('click', () => {
+                            renderPage(i);
+                            window.scrollTo({ top: beritaGrid.offsetTop - 100, behavior: 'smooth' });
+                        });
+                    }
+                    pageBtn.textContent = i;
+                    paginationContainer.appendChild(pageBtn);
+                }
+
+                // Next button (Tampil jika bukan di halaman terakhir)
+                if (currentPage < totalPages) {
+                    const nextBtn = document.createElement('a');
+                    nextBtn.href = '#';
+                    nextBtn.className = 'page-numbers next';
+                    nextBtn.innerHTML = '&raquo;';
+                    nextBtn.title = 'Selanjutnya';
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        renderPage(currentPage + 1);
+                        window.scrollTo({ top: beritaGrid.offsetTop - 100, behavior: 'smooth' });
+                    });
+                    paginationContainer.appendChild(nextBtn);
+                }
+            }
+
+            // Inisialisasi halaman pertama
+            renderPage(1);
+        } else {
+            // Jika artikel <= 6, sembunyikan container pagination agar bersih
+            paginationContainer.style.display = 'none';
+        }
+    }
+});
