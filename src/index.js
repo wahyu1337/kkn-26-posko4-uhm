@@ -128,24 +128,7 @@ function initReveal() {
 
 initReveal();
 
-// ============================================
-// CONTACT FORM — Basic Handler
-// ============================================
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const nama = document.getElementById('nama').value;
-        const email = document.getElementById('email').value;
-        const pesan = document.getElementById('pesan').value;
-
-        console.log('Form submitted:', { nama, email, pesan });
-        alert(`Terima kasih, ${nama}! Pesan Anda telah terkirim.`);
-        contactForm.reset();
-    });
-}
+// (Contact Form handler dihapus karena sekarang ditangani langsung oleh Formspree)
 
 console.log('✅ Website KKN 26 Posko 4 — Universitas Handayani Makassar loaded!');
 
