@@ -43,7 +43,11 @@ function createParticles() {
     const container = document.getElementById('hero-particles');
     if (!container) return;
 
-    const particleCount = 30;
+    // Respect user's reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const particleCount = 15; // Reduced for better Chrome performance
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -234,3 +238,111 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// ============================================
+// AJAX NEWS MODAL SYSTEM
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    const beritaLinks = document.querySelectorAll('.berita-link');
+    
+    if (beritaLinks.length === 0) return;
+
+    // Create Modal HTML and inject into body
+    const modalHTML = `
+        <div class="news-modal-overlay" id="news-modal">
+            <div class="news-modal-content">
+                <button class="news-modal-close" id="news-modal-close">&times;</button>
+                <div class="news-modal-body" id="news-modal-body">
+                    <!-- Content will be injected here -->
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    const modal = document.getElementById('news-modal');
+    const modalBody = document.getElementById('news-modal-body');
+    const modalCloseBtn = document.getElementById('news-modal-close');
+
+    // Function to open modal and load content
+    const openModal = async (url) => {
+        // Show modal with loading state
+        modalBody.innerHTML = '<div style="text-align:center; padding: 40px;"><div style="width: 40px; height: 40px; border: 4px solid var(--neutral-200); border-top-color: var(--primary-500); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div><p style="margin-top:16px;">Memuat berita...</p></div>';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const htmlText = await response.text();
+            
+            // Parse HTML to extract article content
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+            
+            // Extract the article wrapper
+            const articleContent = doc.querySelector('.article-wrapper');
+            
+            if (articleContent) {
+                modalBody.innerHTML = articleContent.outerHTML;
+
+                // Adapt "Kembali ke ..." button based on which page the modal was opened from
+                const backBtn = modalBody.querySelector('.article-footer a');
+                if (backBtn) {
+                    const isBeritaPage = window.location.pathname.includes('/berita');
+                    backBtn.textContent = isBeritaPage ? '← Kembali ke Berita' : '← Kembali ke Beranda';
+                    // Instead of navigating, just close the modal
+                    backBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closeModal();
+                    });
+                }
+            } else {
+                modalBody.innerHTML = '<p style="text-align:center;">Maaf, konten berita tidak dapat ditemukan.</p>';
+            }
+        } catch (error) {
+            console.error('Error fetching news:', error);
+            modalBody.innerHTML = '<p style="text-align:center; color:red;">Gagal memuat berita. Periksa koneksi internet Anda.</p>';
+        }
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restore background scrolling
+        // Optional: clear content after animation finishes
+        setTimeout(() => {
+            modalBody.innerHTML = '';
+        }, 300);
+    };
+
+    // Attach click events to all news links
+    beritaLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Cek apakah link bukan href kosong atau #
+            const url = link.getAttribute('href');
+            if (url && url !== '#' && !url.startsWith('http')) {
+                e.preventDefault();
+                openModal(url);
+            }
+        });
+    });
+
+    // Close button event
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    // Click outside modal content to close
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+});
+

@@ -187,9 +187,7 @@ ul {
 /* Navbar default transparan (untuk hero pages) */
 .navbar.scrolled,
 .navbar.navbar-solid {
-    background: rgba(10, 22, 40, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--primary-900);
     box-shadow: 0 2px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -397,6 +395,7 @@ ul {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 50%;
     animation: float-particle linear infinite;
+    will-change: transform, opacity;
 }
 
 @keyframes float-particle {
@@ -430,7 +429,7 @@ ul {
 .hero-badge {
     display: inline-block;
     padding: 8px 24px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-full);
     color: rgba(255, 255, 255, 0.85);
@@ -438,7 +437,6 @@ ul {
     font-weight: 500;
     letter-spacing: 0.5px;
     margin-bottom: 28px;
-    backdrop-filter: blur(8px);
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -760,8 +758,7 @@ ul {
     bottom: 12px;
     left: 12px;
     padding: 5px 14px;
-    background: rgba(10, 22, 40, 0.7);
-    backdrop-filter: blur(8px);
+    background: rgba(10, 22, 40, 0.9);
     color: #fff;
     font-size: 0.78rem;
     font-weight: 600;
@@ -1446,4 +1443,87 @@ ul {
     .profile-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ============================================
+   NEWS MODAL SYSTEM
+   ============================================ */
+.news-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+    will-change: transform, backdrop-filter, opacity;
+    transform: translateZ(0);
+}
+
+.news-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.news-modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(-50px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-modal-overlay.active .news-modal-content {
+    transform: translateY(0);
+}
+
+.news-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.05);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.news-modal-close:hover {
+    background: var(--primary-500);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.news-modal-body {
+    padding: 32px;
+}
+
+/* Override padding of article wrapper inside modal */
+.news-modal-body .page-content,
+.news-modal-body .article-wrapper {
+    padding: 0;
+    box-shadow: none;
 }
