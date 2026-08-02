@@ -16,7 +16,7 @@
     --primary-300: #4a8ad4;
     --primary-200: #7fb3e8;
     --primary-100: #bdd7f5;
-    --primary-50:  #e8f1fc;
+    --primary-50: #e8f1fc;
 
     /* Accent — Gold / Kuning Keemasan */
     --accent-500: #f0a500;
@@ -33,7 +33,7 @@
     --neutral-300: #d1d5db;
     --neutral-200: #e5e7eb;
     --neutral-100: #f3f4f6;
-    --neutral-50:  #f9fafb;
+    --neutral-50: #f9fafb;
 
     /* Semantic */
     --bg-primary: #ffffff;
@@ -400,10 +400,23 @@ ul {
 }
 
 @keyframes float-particle {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
 }
 
 .hero-content {
@@ -484,13 +497,29 @@ ul {
 }
 
 @keyframes scroll-pulse {
-    0%, 100% { opacity: 0.4; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.2); }
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scaleY(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1.2);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ============================================
@@ -845,8 +874,8 @@ ul {
 }
 
 .profile-avatar {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
     display: flex;
@@ -1224,7 +1253,8 @@ ul {
     margin: 32px 0 16px;
 }
 
-.article-body ul, .article-body ol {
+.article-body ul,
+.article-body ol {
     margin-bottom: 24px;
     padding-left: 24px;
 }
