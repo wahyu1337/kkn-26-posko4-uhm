@@ -1159,44 +1159,44 @@ ul {
 .footer {
     background: var(--primary-900);
     color: rgba(255, 255, 255, 0.7);
-    padding: 64px 0 0;
+    padding: 36px 0 0;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 48px;
+    gap: 32px;
+    padding-bottom: 28px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-brand .logo-text {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 
 .footer-brand p {
-    margin-top: 12px;
-    font-size: 0.88rem;
-    line-height: 1.7;
+    margin-top: 8px;
+    font-size: 0.82rem;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-links h4 {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .footer-links a,
 .footer-links li {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.5);
     transition: color var(--transition-fast);
 }
@@ -1206,12 +1206,12 @@ ul {
 }
 
 .footer-bottom {
-    padding: 24px 0;
+    padding: 16px 0;
     text-align: center;
 }
 
 .footer-bottom p {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: rgba(255, 255, 255, 0.35);
 }
 
