@@ -1527,3 +1527,119 @@ ul {
     padding: 0;
     box-shadow: none;
 }
+
+/* ============================================
+   RESPONSIVE — Article Detail & Modal (Mobile)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Article wrapper */
+    .article-wrapper {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    /* Article meta tags */
+    .article-meta {
+        gap: 8px;
+        font-size: 0.78rem;
+        margin-bottom: 16px;
+    }
+
+    /* Featured image */
+    .article-featured-img {
+        margin-bottom: 24px;
+    }
+
+    .article-featured-img .berita-placeholder-img {
+        height: 220px !important;
+        border-radius: 12px !important;
+    }
+
+    /* Article body text */
+    .article-body {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .article-body h2 {
+        font-size: 1.25rem;
+        margin: 28px 0 14px;
+    }
+
+    .article-body h3 {
+        font-size: 1.1rem;
+        margin: 24px 0 12px;
+    }
+
+    .article-body blockquote {
+        padding: 16px;
+        margin: 20px 0;
+        font-size: 0.9rem;
+    }
+
+    /* Gallery grid — stack to 1 column on mobile */
+    .article-gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 20px 0;
+    }
+
+    .article-gallery .berita-placeholder-img {
+        height: 180px !important;
+        border-radius: 10px !important;
+    }
+
+    /* Article footer */
+    .article-footer {
+        margin-top: 28px;
+        padding-top: 20px;
+    }
+
+    /* Modal system mobile */
+    .news-modal-overlay {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+
+    .news-modal-content {
+        max-height: 85vh;
+        border-radius: 12px;
+    }
+
+    .news-modal-body {
+        padding: 16px;
+    }
+
+    .news-modal-close {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-wrapper {
+        padding: 16px 12px;
+    }
+
+    .article-body {
+        font-size: 0.9rem;
+    }
+
+    .news-modal-body {
+        padding: 12px;
+    }
+
+    .news-modal-overlay {
+        padding: 6px;
+        padding-top: 48px;
+    }
+
+    .news-modal-content {
+        max-height: 90vh;
+        border-radius: 10px;
+    }
+}
