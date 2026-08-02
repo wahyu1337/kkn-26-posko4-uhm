@@ -54,6 +54,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: 'src/assets', to: 'assets', noErrorOnMissing: true },
+                { from: 'CNAME', to: '.', noErrorOnMissing: true },
             ],
         }),
     ],
