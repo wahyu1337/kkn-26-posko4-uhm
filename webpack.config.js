@@ -11,6 +11,7 @@ const pages = [
     { name: 'proker', title: 'Program Kerja — KKN 26 Posko 4 UHM', template: './src/proker/index.html', filename: 'proker/index.html' },
     // Detail Berita
     { name: 'berita-penyerahan', title: 'Penyerahan Mahasiswa KKN — KKN 26 Posko 4 UHM', template: './src/berita/penyerahan-mahasiswa-kkn.html', filename: 'berita/penyerahan-mahasiswa-kkn.html' },
+    { name: 'berita-spanduk', title: 'Proses Pemasangan Spanduk — KKN 26 Posko 4 UHM', template: './src/berita/pemasangan-spanduk.html', filename: 'berita/pemasangan-spanduk.html' },
 ];
 
 module.exports = {
