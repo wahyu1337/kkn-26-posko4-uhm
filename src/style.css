@@ -745,12 +745,10 @@ ul {
 }
 
 .berita-placeholder-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
     height: 100%;
-    font-size: 3rem;
-    opacity: 0.5;
+    object-fit: cover;
+    display: block;
 }
 
 .berita-date {
