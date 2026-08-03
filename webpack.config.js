@@ -12,6 +12,7 @@ const pages = [
     // Detail Berita
     { name: 'berita-penyerahan', title: 'Penyerahan Mahasiswa KKN — KKN 26 Posko 4 UHM', template: './src/berita/penyerahan-mahasiswa-kkn.html', filename: 'berita/penyerahan-mahasiswa-kkn.html' },
     { name: 'berita-spanduk', title: 'Proses Pemasangan Spanduk — KKN 26 Posko 4 UHM', template: './src/berita/pemasangan-spanduk.html', filename: 'berita/pemasangan-spanduk.html' },
+    { name: 'berita-proker', title: 'Pembahasan Program Kerja — KKN 26 Posko 4 UHM', template: './src/berita/pembahasan-proker.html', filename: 'berita/pembahasan-proker.html' },
 ];
 
 module.exports = {
