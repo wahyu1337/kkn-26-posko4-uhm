@@ -14,6 +14,7 @@ const pages = [
     { name: 'berita-spanduk', title: 'Proses Pemasangan Spanduk — KKN 26 Posko 4 UHM', template: './src/berita/pemasangan-spanduk.html', filename: 'berita/pemasangan-spanduk.html' },
     { name: 'berita-proker', title: 'Pembahasan Program Kerja — KKN 26 Posko 4 UHM', template: './src/berita/pembahasan-proker.html', filename: 'berita/pembahasan-proker.html' },
     { name: 'berita-observasi', title: 'Sesi Observasi dan Wawancara — KKN 26 Posko 4 UHM', template: './src/berita/sesi-observasi-lurah.html', filename: 'berita/sesi-observasi-lurah.html' },
+    { name: 'berita-kegiatan-bersih2', title: 'Gotong-Royong 17 Agustusan — KKN 26 Posko 4 UHM', template: './src/berita/kegiatan-bersih2.html', filename: 'berita/kegiatan-bersih2.html' },
 ];
 
 module.exports = {
