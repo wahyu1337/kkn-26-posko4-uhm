@@ -16,6 +16,8 @@ const pages = [
     { name: 'berita-observasi', title: 'Sesi Observasi dan Wawancara — KKN 26 Posko 4 UHM', template: './src/berita/sesi-observasi-lurah.html', filename: 'berita/sesi-observasi-lurah.html' },
     { name: 'berita-kegiatan-bersih2', title: 'Gotong-Royong 17 Agustusan — KKN 26 Posko 4 UHM', template: './src/berita/kegiatan-bersih2.html', filename: 'berita/kegiatan-bersih2.html' },
     { name: 'berita-kegiatan-reses', title: 'Kegiatan pertemuan reses — KKN 26 Posko 4 UHM', template: './src/berita/pertemuan-mallaranganTutu.html', filename: 'berita/pertemuan-mallaranganTutu.html' },
+    { name: 'berita-observasi-sd168', title: 'Observasi SD 168 Romangtanngaya — KKN 26 Posko 4 UHM', template: './src/berita/observasi-sd168.html', filename: 'berita/observasi-sd168.html' },
+    { name: 'berita-rapatKorcam', title: 'Rapat pemilihan koordinator Camat — KKN 26 Posko 4 UHM', template: './src/berita/rapatKorcam.html', filename: 'berita/rapatKorcam.html' },
 ];
 
 module.exports = {
