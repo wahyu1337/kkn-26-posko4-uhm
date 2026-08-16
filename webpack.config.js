@@ -21,6 +21,7 @@ const pages = [
     { name: 'berita-Kegiatan-Khotbah', title: 'Kegiatan Khotbah Pada Hari Jumat — KKN 26 Posko 4 UHM', template: './src/berita/kegiatan-khotbah.html', filename: 'berita/kegiatan-khotbah.html' },
     { name: 'berita-Kegiatan-Troubleshooting-print', title: 'Kegiatan Troubleshooting printer — KKN 26 Posko 4 UHM', template: './src/berita/troubleshooting-printer.html', filename: 'berita/troubleshooting-printer.html' },
     { name: 'berita-Kegiatan-Seminar-Program-Kerja', title: 'Kegiatan Seminar Program Kerja — KKN 26 Posko 4 UHM', template: './src/berita/seminar-program-kerja.html', filename: 'berita/seminar-program-kerja.html' },
+    { name: 'berita-bola-17', title: 'Kegiatan Bermain Bola — KKN 26 Posko 4 UHM', template: './src/berita/bola-17.html', filename: 'berita/bola-17.html' },
 ];
 
 module.exports = {
